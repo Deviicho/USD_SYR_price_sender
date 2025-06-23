@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import smtplib
 from email.mime.text import MIMEText
-from decouple import config
+import os
 
 
 url = 'https://sp-today.com/en'
@@ -23,8 +23,8 @@ def main(page):
     GOLD_price = a.find('span' , {'class' : 'value'})
     GOLD_GRAM = GOLD_price.text.strip()
     
-    sender = config('SENDER')
-    app_password = config('APP_PASSWORD')
+    sender = os.getenv('SENDER')
+    app_password = os.getenv('APP_PASSWORD')
     receiver = ['michoar777@gmail.com'] #use ', '
 
     msg = MIMEText(f"Good morning Mate!\n\n\nhere is some news for today:\n\nthe price for usd is : {SYRtoUSD}\nand the price for gold is : {GOLD_GRAM}")
