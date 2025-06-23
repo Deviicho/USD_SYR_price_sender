@@ -14,9 +14,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+          
+      - name: Uninstall wrong decouple
+        run: pip uninstall -y decouple
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Check python-decouple version
-        run: python -c "import decouple; print(decouple.__file__); print(decouple.__version__)"
+
       - name: Run script
         run: python main.py
