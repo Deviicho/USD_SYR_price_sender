@@ -34,7 +34,7 @@ def main(page):
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(sender, app_password)
-        smtp.send_message(msg, to_addrs=receiver)
+        smtp.send_message(msg, to_addrs=receiver) 
     
     
 main(page)
