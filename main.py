@@ -25,7 +25,7 @@ def main(page):
     
     sender = os.getenv('SENDER')
     app_password = os.getenv('APP_PASSWORD')
-    receiver = ['michoar777@gmail.com', 'thomas.cariline7@gmail.com'] #use ', '
+    receiver = ['michoar777@gmail.com', 'thomas.caroline7@gmail.com'] #use ', '
 
     msg = MIMEText(f"Good morning Mate!\n\n\nhere is some news for today:\n\nthe price for usd is : {SYRtoUSD}\nand the price for gold is : {GOLD_GRAM}")
     msg['Subject'] = 'Daily prices'
