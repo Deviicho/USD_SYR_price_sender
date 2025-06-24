@@ -25,16 +25,16 @@ def main(page):
     
     sender = os.getenv('SENDER')
     app_password = os.getenv('APP_PASSWORD')
-    receiver = ['michoar777@gmail.com'] #use ', '
+    receiver = ['michoar777@gmail.com', 'thomas.caroline7@gmail.com'] #use ', '
 
     msg = MIMEText(f"Good morning Mate!\n\n\nhere is some news for today:\n\nthe price for usd is : {SYRtoUSD}\nand the price for gold is : {GOLD_GRAM}")
     msg['Subject'] = 'Daily prices'
     msg['From'] = sender
-    msg['To'] = ", ".join(receiver)
+    msg['To'] = 'Undisclosed Recipients <>'
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(sender, app_password)
-        smtp.send_message(msg)
+        smtp.send_message(msg, to_addrs=receiver)
     
     
 main(page)
