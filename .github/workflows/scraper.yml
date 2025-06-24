@@ -1,3 +1,28 @@
+# name: Daily Scraper
+
+# on:
+#   schedule:
+#     - cron: '0 6 * * *'  # 9:00 AM Syria time
+#   workflow_dispatch:
+
+# jobs:
+#   run-script:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.11'
+          
+#       - name: Uninstall wrong decouple
+#         run: pip uninstall -y decouple
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
+
+#       - name: Run script
+#         run: python main.py
+
 name: Daily Scraper
 
 on:
@@ -21,4 +46,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run script
+        env:
+          SENDER: ${{ secrets.SENDER }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
         run: python main.py
