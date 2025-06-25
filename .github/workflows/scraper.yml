@@ -27,7 +27,7 @@ name: Daily Scraper
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # 9:00 AM Syria time
+    - cron: */5 * * * *'  # 9:00 AM Syria time
   workflow_dispatch:
 
 jobs:
